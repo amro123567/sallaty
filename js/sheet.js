@@ -122,8 +122,15 @@ const loadProducts = (() => {
   return async function load() {
     let url = (typeof CONFIG !== "undefined" && CONFIG.PRODUCTS_SHEET_URL || "").trim();
     if (!url) return "file";
+    // FAST MODE: the normal sheet link (…/spreadsheets/d/<ID>/edit…) → live CSV that updates within seconds.
+    // The sheet must be shared as "Anyone with the link – Viewer".
+    const live = url.match(/docs\.google\.com\/spreadsheets\/d\/(?!e\/)([\w-]+)/);
+    if (live) {
+      const gid = (url.match(/[#&?]gid=(\d+)/) || [])[1];
+      url = `https://docs.google.com/spreadsheets/d/${live[1]}/gviz/tq?tqx=out:csv&headers=1${gid ? "&gid=" + gid : ""}`;
+    }
     // Accept the "web page" publish link too (pubhtml) and turn it into the CSV link
-    if (url.includes("docs.google.com") && !/output=csv/.test(url)) {
+    else if (url.includes("docs.google.com") && !/output=csv/.test(url)) {
       url = url.replace("/pubhtml", "/pub").replace(/[?&]output=\w+/, "");
       url += (url.includes("?") ? "&" : "?") + "output=csv";
     }
