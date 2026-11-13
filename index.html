@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sallaty – Online Shop | Free Delivery All Over Lebanon</title>
+  <meta name="description" content="Sallaty online shop: Christmas gifts, decor, fashion and beauty with FREE delivery all over Lebanon. Order in seconds on WhatsApp, pay cash on delivery.">
+  <meta name="theme-color" content="#0B2149">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Sallaty – Online Shop">
+  <meta property="og:description" content="Christmas gifts & more. FREE delivery all over Lebanon. Order on WhatsApp.">
+  <meta property="og:image" content="assets/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/icon-512.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="home">
+  <div id="app-header"></div>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero">
+      <canvas id="snow" class="snow" aria-hidden="true"></canvas>
+      <div class="hero-deco xmas-only" aria-hidden="true">
+        <span class="star s1">✦</span><span class="star s2">✧</span><span class="star s3">✦</span><span class="star s4">✧</span>
+        <svg class="hang hang-1" width="40" height="150" viewBox="0 0 40 150"><line x1="20" y1="0" x2="20" y2="110" stroke="#D4A84B" stroke-width="1.5"/><rect x="15" y="106" width="10" height="7" rx="1" fill="#D4A84B"/><circle cx="20" cy="128" r="17" fill="#C8102E"/><circle cx="14" cy="122" r="4" fill="#fff" opacity=".35"/></svg>
+        <svg class="hang hang-2" width="34" height="110" viewBox="0 0 34 110"><line x1="17" y1="0" x2="17" y2="75" stroke="#D4A84B" stroke-width="1.5"/><rect x="12" y="72" width="10" height="6" rx="1" fill="#D4A84B"/><circle cx="17" cy="93" r="15" fill="#D4A84B"/><circle cx="12" cy="88" r="3.5" fill="#fff" opacity=".4"/></svg>
+        <svg class="hang hang-3" width="34" height="190" viewBox="0 0 34 190"><line x1="17" y1="0" x2="17" y2="155" stroke="#D4A84B" stroke-width="1.5"/><rect x="12" y="152" width="10" height="6" rx="1" fill="#D4A84B"/><circle cx="17" cy="173" r="15" fill="#1F5C3F"/><circle cx="12" cy="168" r="3.5" fill="#fff" opacity=".35"/></svg>
+      </div>
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <span class="eyebrow eyebrow-gold xmas-only">🎄 <span data-i18n="heroEyebrow"></span></span>
+          <h1 class="hero-title" data-i18n="heroTitle"></h1>
+          <p class="hero-sub" data-i18n="heroSub"></p>
+          <div class="hero-ctas">
+            <a class="btn btn-gold btn-lg" href="#offers"><span data-i18n="shopOffers"></span> →</a>
+            <a class="btn btn-wa btn-lg" id="hero-wa" href="#" target="_blank" rel="noopener">
+              <svg width="24" height="24" viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.9 2 7L3 29l6.4-2c2 1.1 4.3 1.7 6.6 1.7 7.2 0 13-5.7 13-12.8S23.2 3 16 3zm6 15.5c-.3-.2-1.9-1-2.2-1-.3-.1-.5-.2-.7.2l-1 1.2c-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6.3-.5c.1-.2 0-.4 0-.5l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5 2.5 1 3 .8 3.6.8.5-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4z"/></svg>
+              <span data-i18n="orderOnWa"></span>
+            </a>
+          </div>
+          <p class="hero-free">🚚 <span data-i18n="freeDelivery"></span></p>
+        </div>
+
+        <div class="hero-card xmas-only">
+          <img src="assets/logo-white.png" alt="" width="220" height="65">
+          <p class="cd-label" data-i18n="countdownLabel"></p>
+          <div class="countdown" data-countdown="">
+            <div><b data-u="d">00</b><small data-i18n="days"></small></div>
+            <div><b data-u="h">00</b><small data-i18n="hours"></small></div>
+            <div><b data-u="m">00</b><small data-i18n="mins"></small></div>
+            <div><b data-u="s">00</b><small data-i18n="secs"></small></div>
+          </div>
+        </div>
+      </div>
+      <button class="snow-toggle" id="snow-toggle" type="button" aria-pressed="true">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2v20M4.9 4.9l14.2 14.2M2 12h20M4.9 19.1 19.1 4.9"/></svg>
+        <span></span>
+      </button>
+      <div class="hero-snowline xmas-only" aria-hidden="true"></div>
+    </section>
+
+    <!-- TRUST STRIP -->
+    <section class="trust" aria-label="Why Sallaty">
+      <div class="container trust-grid">
+        <div class="trust-item"><span class="trust-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></svg></span><div><b data-i18n="trust1"></b><small data-i18n="trust1s"></small></div></div>
+        <div class="trust-item"><span class="trust-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="6" width="19" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/></svg></span><div><b data-i18n="trust2"></b><small data-i18n="trust2s"></small></div></div>
+        <div class="trust-item"><span class="trust-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg></span><div><b data-i18n="trust3"></b><small data-i18n="trust3s"></small></div></div>
+        <div class="trust-item"><span class="trust-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v6c0 4.5 3.4 8.2 8 9 4.6-.8 8-4.5 8-9V6l-8-3z"/><path d="m9 12 2 2 4-4"/></svg></span><div><b data-i18n="trust4"></b><small data-i18n="trust4s"></small></div></div>
+      </div>
+    </section>
+
+    <!-- OFFERS -->
+    <section class="section offers reveal" id="offers" aria-labelledby="offers-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow eyebrow-red">🔥 <span data-i18n="offersEyebrow"></span></span>
+            <h2 class="section-title" id="offers-title"><span data-i18n="offersTitle"></span> <span class="offers-max" id="offers-max"></span></h2>
+            <p class="section-sub" data-i18n="offersSub"></p>
+          </div>
+        </div>
+        <div class="carousel" id="offers-carousel">
+          <button class="car-btn car-prev" type="button" data-i18n-aria="prev">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+          </button>
+          <div class="carousel-track" id="offers-track" tabindex="0" data-i18n-aria="offersTitle"></div>
+          <button class="car-btn car-next" type="button" data-i18n-aria="next">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+          </button>
+        </div>
+        <div class="promo-grid" id="promo-banners"></div>
+      </div>
+    </section>
+
+    <!-- CATEGORIES + SHOP -->
+    <section class="section shop reveal" id="shop" aria-labelledby="shop-title">
+      <div class="container">
+        <h2 class="section-title" data-i18n="catsTitle"></h2>
+        <div class="cat-list" id="category-list"></div>
+
+        <div class="shop-head">
+          <h2 class="section-title section-title-sm" id="shop-title"><span data-i18n="shopTitle"></span> <small id="shop-count"></small></h2>
+          <div class="toolbar">
+            <label class="tool-search">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+              <span class="sr-only" data-i18n="search"></span>
+              <input type="search" id="shop-q" data-i18n-ph="filterSearchPh" autocomplete="off">
+            </label>
+            <label class="tool-sort">
+              <span data-i18n="sortBy"></span>
+              <select id="shop-sort">
+                <option value="featured" data-i18n="sortFeatured"></option>
+                <option value="price-asc" data-i18n="sortPriceAsc"></option>
+                <option value="price-desc" data-i18n="sortPriceDesc"></option>
+                <option value="discount" data-i18n="sortDiscount"></option>
+                <option value="newest" data-i18n="sortNewest"></option>
+              </select>
+            </label>
+          </div>
+        </div>
+
+        <div class="grid" id="product-grid" aria-live="polite"></div>
+        <div class="empty" id="shop-empty" hidden>
+          <div class="empty-emoji" aria-hidden="true">🔍❄️</div>
+          <h3 data-i18n="noResults"></h3>
+          <p data-i18n="noResultsSub"></p>
+          <button class="btn btn-outline" type="button" id="clear-filters" data-i18n="clearFilters"></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- GIFTS -->
+    <section class="section gifts reveal" id="gifts" aria-labelledby="gifts-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title" id="gifts-title" data-i18n="giftsTitle"></h2>
+            <p class="section-sub" data-i18n="giftsSub"></p>
+          </div>
+        </div>
+        <div class="grid" id="gift-grid"></div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section faq reveal" id="faq" aria-labelledby="faq-title">
+      <div class="container container-narrow">
+        <h2 class="section-title center" id="faq-title" data-i18n="faqTitle"></h2>
+        <div class="accordion">
+          <details><summary data-i18n="faqQ1"></summary><p id="faq-delivery-time"></p></details>
+          <details><summary data-i18n="faqQ2"></summary><p data-i18n="faqA2"></p></details>
+          <details><summary data-i18n="faqQ3"></summary><p data-i18n="faqA3"></p></details>
+          <details><summary data-i18n="faqQ4"></summary><p id="faq-returns"></p></details>
+          <details><summary data-i18n="faqQ5"></summary><p data-i18n="faqA5"></p></details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="app-footer"></div>
+
+  <script src="js/config.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/sheet.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
