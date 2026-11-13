@@ -120,8 +120,13 @@ const loadProducts = (() => {
   }
 
   return async function load() {
-    const url = (typeof CONFIG !== "undefined" && CONFIG.PRODUCTS_SHEET_URL || "").trim();
+    let url = (typeof CONFIG !== "undefined" && CONFIG.PRODUCTS_SHEET_URL || "").trim();
     if (!url) return "file";
+    // Accept the "web page" publish link too (pubhtml) and turn it into the CSV link
+    if (url.includes("docs.google.com") && !/output=csv/.test(url)) {
+      url = url.replace("/pubhtml", "/pub").replace(/[?&]output=\w+/, "");
+      url += (url.includes("?") ? "&" : "?") + "output=csv";
+    }
     try {
       const ctrl = new AbortController();
       const timer = setTimeout(() => ctrl.abort(), 8000);
@@ -130,8 +135,15 @@ const loadProducts = (() => {
       if (!res.ok) throw new Error("HTTP " + res.status);
       const text = await res.text();
       if (/^\s*<!doctype|<html/i.test(text)) throw new Error("Sheet is not published as CSV");
-      const products = rowsToProducts(parseCSV(text));
-      if (!products.length) throw new Error("No products found in sheet");
+      const rows = parseCSV(text);
+      const products = rowsToProducts(rows);
+      if (!products.length) {
+        // The sheet was reached but has no valid rows: show NO products (never old/sample ones)
+        console.warn("[Sallaty] Sheet loaded but no valid products. Every row needs at least 'name' and 'price'. Headers found:", rows[0]);
+        try { localStorage.removeItem(CACHE_KEY); } catch (e) { /* ignore */ }
+        apply([]);
+        return "sheet-empty";
+      }
       try { localStorage.setItem(CACHE_KEY, JSON.stringify(products)); } catch (e) { /* ignore */ }
       apply(products);
       return "sheet";

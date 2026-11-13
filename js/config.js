@@ -17,7 +17,7 @@ const CONFIG = {
 
   // GOOGLE SHEET (easiest way to manage products – see README)
   // Paste your "Publish to web → CSV" link here. Leave "" to use js/products.js.
-  PRODUCTS_SHEET_URL: "https://docs.google.com/spreadsheets/d/e/2PACX-1vSy9WbhvJMW6QpP2t_qMgMuHuOWE_tf2BEpO32u0c0Aptzsrq6Ro2RwaT1yAx1u4APCZQopV1siCtpl/pubhtml?gid=0&single=true",
+  PRODUCTS_SHEET_URL: "https://docs.google.com/spreadsheets/d/e/2PACX-1vSy9WbhvJMW6QpP2t_qMgMuHuOWE_tf2BEpO32u0c0Aptzsrq6Ro2RwaT1yAx1u4APCZQopV1siCtpl/pub?gid=0&single=true&output=csv",
 
   CURRENCY: "$",
 

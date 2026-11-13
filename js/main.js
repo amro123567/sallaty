@@ -522,7 +522,7 @@
     const catBtn = (id, label, icon, count) =>
       `<button type="button" class="cat-chip" data-cat="${id}" aria-pressed="${state.cat === id}"><span class="cat-icon" aria-hidden="true">${icon}</span><span>${esc(label)}</span><small>${count}</small></button>`;
     catBox.innerHTML = catBtn("all", T("all"), "✨", PRODUCTS.length) +
-      CATEGORIES.map(c => catBtn(c.id, catName(c.id), c.icon, PRODUCTS.filter(p => p.category === c.id).length)).join("");
+      CATEGORIES.filter(c => PRODUCTS.some(p => p.category === c.id)).map(c => catBtn(c.id, catName(c.id), c.icon, PRODUCTS.filter(p => p.category === c.id).length)).join("");
     catBox.addEventListener("click", e => {
       const b = e.target.closest("[data-cat]"); if (!b) return;
       state.cat = b.dataset.cat; render();
@@ -565,7 +565,9 @@
     render();
 
     // Gifts
-    $("#gift-grid").innerHTML = PRODUCTS.filter(p => p.tags?.includes("gift") && p.inStock).slice(0, 8).map(p => cardHTML(p)).join("");
+    const gifts = PRODUCTS.filter(p => p.tags?.includes("gift") && p.inStock).slice(0, 8);
+    $("#gift-grid").innerHTML = gifts.map(p => cardHTML(p)).join("");
+    $("#gifts").hidden = gifts.length === 0;
 
     // FAQ dynamic answers
     $("#faq-delivery-time").textContent = CONFIG.DELIVERY_TIME[LANG] || CONFIG.DELIVERY_TIME.en;
