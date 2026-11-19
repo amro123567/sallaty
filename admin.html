@@ -603,7 +603,7 @@
   }
   function toImg(v) {
     const m = v.match(/drive\.google\.com\/(?:file\/d\/|open\?id=|uc\?(?:export=\w+&)?id=)([\w-]+)/);
-    if (m) return `https://drive.google.com/thumbnail?id=${m[1]}&sz=w600`;
+    if (m) return `https://lh3.googleusercontent.com/d/${m[1]}=w600`;
     if (/^https?:\/\//.test(v)) return v;
     if (v.startsWith("assets/")) return SHOP_URL + v;
     return SHOP_URL + "assets/products/" + v;
