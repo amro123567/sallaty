@@ -59,6 +59,35 @@ With this set up, you add, edit, discount or hide products in a Google Sheet, ev
 
 ---
 
+## 📱 Admin page: add products with a form (no typing in the sheet)
+`admin.html` is a private page on your site where you fill in a form, pick photos from your phone or computer, and press **Add product**. The photos go to your Google Drive and the product is added to your Google Sheet automatically. Open it at `https://your-site/admin.html`.
+
+### Admin page setup (one time, about 5 minutes)
+1. Open your **Google Sheet** and click **Extensions → Apps Script**.
+2. Delete any code you see, paste in everything from **`google-apps-script.gs`**, and click 💾 **Save**.
+3. On line 8, change `change-this-password` to your own password (keep the quotes), then **Save**.
+4. Click **Deploy → New deployment**, then click ⚙️ → **Web app**:
+   - Execute as: **Me**
+   - Who has access: **Anyone**
+
+   Click **Deploy**.
+5. Google asks for permission. Click **Authorize access** and choose your account. If you see *"Google hasn't verified this app"*, click **Advanced → Go to (unsafe)**. It's your own script, so it's safe. Then click **Allow**.
+6. Copy the **Web app URL** (it starts with `https://script.google.com/macros/s/…/exec`).
+7. Open `https://your-site/admin.html`, paste the URL and your password, and click **Save & test**.
+
+You do this once per device (phone, laptop). Tip: on your phone, use **Share → Add to Home Screen** so the admin page opens like an app.
+
+**Security:** only someone with your password can add or hide products. The password is saved only on your own devices, never on GitHub. The admin page is hidden from Google search.
+
+**What the admin page does:**
+- **Add product:** photos (auto-resized), name, Arabic name, category, price, offer, description, features, sizes, colors, labels, stock and featured, with a live preview.
+- **My products:** search your products and **Hide/Show** them with one tap.
+- Editing details or deleting products is still done directly in the Google Sheet.
+
+**If you edit the script later**, go to **Deploy → Manage deployments → ✏️ → Version: New version → Deploy**. The URL stays the same.
+
+---
+
 ## 🛍️ Add or edit a product (without Google Sheets)
 1. Put the photos in `assets/products/` (e.g. `p013-1.jpg`, `p013-2.jpg`).
 2. In `js/products.js`, copy an existing `{ ... },` block, paste it at the end of the list, and edit it:
@@ -85,6 +114,14 @@ With this set up, you add, edit, discount or hide products in a Google Sheet, ev
 - **To change the big offer banners**, edit `OFFER_BANNERS` at the bottom of `products.js`.
 
 **Photos:** square, 1000×1000 px, under 200 KB, JPG or WebP, plain light background. You can use [squoosh.app](https://squoosh.app) to shrink them.
+
+
+## ⭐ Ratings & customer reviews (only real ones)
+**Star ratings on products:** add two columns to your Google Sheet, `rating` (for example `4.8`) and `reviews` (for example `23`), or fill in the Rating fields in the admin page. Stars only appear on products that have a rating. Only enter numbers that come from real customer feedback.
+
+**Reviews section on the home page:** open `js/reviews.js` and add real reviews from your customers, such as nice WhatsApp messages (ask them first). The section stays hidden until you add at least one. Set `verified: true` only for people who actually bought from you.
+
+**Hover photo:** if a product has two or more photos, the second one appears when a customer hovers over the card.
 
 ## 🎅 After Christmas
 In `js/config.js`, change:
